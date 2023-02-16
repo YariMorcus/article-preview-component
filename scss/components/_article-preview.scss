@@ -4,3 +4,95 @@
 // Import mixins and variables
 @use '../abstracts/mixins' as m;
 @use '../abstracts/variables' as v;
+
+.article-preview {
+    margin: 6rem auto;
+    max-width: 32rem;
+    font-family: 'Manrope', sans-serif;
+    font-size: t.$body-font-size;
+    border-radius: 1rem;
+    background-color: v.$white;
+    overflow: hidden;
+
+    @include m.breakpoint-md() {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        max-width: 75rem;
+    }
+
+    &__header-img {
+        padding-top: 20rem;
+        background-image: url('../img/drawers.webp');
+        background-size: cover;
+        background-position-y: -1.4rem;
+        background-repeat: no-repeat;
+
+        @include m.breakpoint-md() {
+            padding-top: 0;
+            background-position-y: 0;
+        }
+    }
+
+    &__title {
+        padding-top: 4rem;
+        font-size: 1.6rem;
+    }
+
+    &__paragraph {
+        padding-top: 1.5rem;
+        color: v.$desaturated-dark-blue;
+    }
+
+    &__title,
+    &__paragraph {
+        background-color: v.$white;
+    }
+
+    &__title,
+    &__paragraph,
+    &__footer {
+        padding-left: 3.2rem;
+        padding-right: 3.1rem;
+    }
+
+    &__title,
+    &__author-name {
+        font-weight: 700;
+        color: v.$very-dark-grayish-blue;
+    }
+
+    &__footer {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+        align-items: center;
+    }
+
+    &__share-button {
+        width: 3.5rem;
+        height: 3.5rem;
+        border: none;
+        border-radius: 100%;
+        background-image: url(../img/icon-share.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    &__author {
+
+        &-img {
+            border-radius: 100%;
+        }
+
+        &-info {
+            flex: 1;
+            padding-left: 2rem;
+        }
+
+    }
+
+    &__publish-date {
+        color: v.$grayish-blue;
+    }
+}
