@@ -10,14 +10,16 @@
     max-width: 32rem;
     font-family: 'Manrope', sans-serif;
     font-size: t.$body-font-size;
-    border-radius: 1rem;
     background-color: v.$white;
+    border-radius: 1rem;
+    box-shadow: 0 4.2rem 20.7rem -10.5rem v.$grayish-blue;
     overflow: hidden;
 
     @include m.breakpoint-md() {
         display: grid;
         grid-template-columns: 27rem 1fr;
         max-width: 70rem;
+        box-shadow: 4rem 6.1rem 10rem -8.8rem v.$grayish-blue;
     }
 
     &__header-img {
