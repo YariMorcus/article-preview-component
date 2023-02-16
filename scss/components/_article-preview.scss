@@ -6,7 +6,7 @@
 @use '../abstracts/variables' as v;
 
 .article-preview {
-    margin: 6rem auto;
+    margin: 0 auto;
     max-width: 32rem;
     font-family: 'Manrope', sans-serif;
     font-size: t.$body-font-size;
@@ -16,8 +16,8 @@
 
     @include m.breakpoint-md() {
         display: grid;
-        grid-template-columns: 1fr 2fr;
-        max-width: 75rem;
+        grid-template-columns: 27rem 1fr;
+        max-width: 70rem;
     }
 
     &__header-img {
@@ -33,26 +33,37 @@
         }
     }
 
-    &__title {
-        padding-top: 4rem;
-        font-size: 1.6rem;
-    }
-
-    &__paragraph {
-        padding-top: 1.5rem;
-        color: v.$desaturated-dark-blue;
-    }
-
-    &__title,
-    &__paragraph {
-        background-color: v.$white;
-    }
-
     &__title,
     &__paragraph,
     &__footer {
         padding-left: 3.2rem;
         padding-right: 3.1rem;
+    }
+
+    &__title {
+        padding-top: 4rem;
+        font-size: 1.6rem;
+
+        @include m.breakpoint-md() {
+            padding-top: 3rem;
+            padding-right: 11rem;
+            padding-left: 4rem;
+        }
+    }
+
+    &__paragraph {
+        padding-top: 1.5rem;
+        color: v.$desaturated-dark-blue;
+
+        @include m.breakpoint-md() {
+            padding-right: 3rem;
+            padding-left: 4rem;
+        }
+    }
+
+    &__title,
+    &__paragraph {
+        background-color: v.$white;
     }
 
     &__title,
@@ -67,6 +78,11 @@
         margin-top: 3rem;
         margin-bottom: 2rem;
         align-items: center;
+
+        @include m.breakpoint-md() {
+            padding-right: 4rem;
+            padding-left: 4rem;
+        }
     }
 
     &__share-button {
