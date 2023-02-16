@@ -26,6 +26,7 @@
         background-size: cover;
         background-position-y: -1.4rem;
         background-repeat: no-repeat;
+        filter: contrast(.9) brightness(1.12);
 
         @include m.breakpoint-md() {
             padding-top: 0;
