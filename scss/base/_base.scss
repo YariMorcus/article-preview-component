@@ -25,6 +25,8 @@ body {
 
 main {
     flex: 1;
+    display: flex;
+    align-items: center;
 }
 
 /* A elements that don't have a class get default styles */
