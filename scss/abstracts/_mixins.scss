@@ -4,3 +4,10 @@
         @content;
     }
 }
+
+// > 878px
+@mixin breakpoint-md-2() {
+    @media (min-width: 878px) {
+        @content;
+    }
+}
