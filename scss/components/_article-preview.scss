@@ -156,6 +156,16 @@
             &:hover {
                 background-color: scale-color(v.$grayish-blue, $lightness: 48%);
             }
+
+            &--selected {
+                background-image: url(../img/icon-share-active.svg);
+                background-color: v.$desaturated-dark-blue;
+
+                &:hover {
+                    background-color: scale-color( v.$grayish-blue, $lightness: -4% );
+                }
+            }
+
         }
 
         &-button-popover {
