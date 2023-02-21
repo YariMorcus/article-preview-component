@@ -56,6 +56,11 @@
 
         const SHARE_BUTTONS = document.querySelectorAll( '.article-preview__share-button' );
 
+        function removeActiveClass(activeShareButton) {
+            activeShareButton.classList.remove( activeShareButton.classList[1] );
+
+        }
+
         function createShareContainer(e) {
 
             // Helper function
@@ -127,6 +132,8 @@
             // Append share container to .article-preview__share-button-container
             SHARE_BUTTON_CONTAINER.appendChild( SHARE_CONTAINER );
 
+            SHARE_BUTTON.classList.add( `${SHARE_BUTTON.className}--selected` );
+
             const mql = window.matchMedia( '(min-width: 768px)' );
 
             ANCHOR_PIN.addEventListener( 'blur', (e) => {
@@ -143,13 +150,15 @@
             // Results in container not being deleted
             SHARE_BUTTON.removeEventListener('click', createShareContainer );
 
-            SHARE_BUTTON.addEventListener( 'click', e => {
+            SHARE_BUTTON.addEventListener( 'click', () => {
                 SHARE_CONTAINER.remove();
+                SHARE_BUTTON.classList.remove( 'article-preview__share-button-popover' );
             } );
 
             SHARE_BUTTON_POPOVER.addEventListener( 'click', () => {
                 SHARE_CONTAINER.remove();
                 SHARE_BUTTON.focus();
+                removeActiveClass(SHARE_BUTTON);
             } );
         }
 
@@ -159,6 +168,7 @@
                 // If share container already exists, remove it (otherwise it is recreated immediately).
                 if ( e.target.nextElementSibling) {
                     e.target.nextElementSibling.remove();
+                    removeActiveClass(SHARE_BUTTON);
                 } else {
                     createShareContainer(e);
                 }
