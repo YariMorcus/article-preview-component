@@ -143,29 +143,20 @@
             // Results in container not being deleted
             SHARE_BUTTON.removeEventListener('click', createShareContainer );
 
-            SHARE_BUTTON.addEventListener( 'click', (e) => {
-                // console.log('test')
+            SHARE_BUTTON.addEventListener( 'click', e => {
                 SHARE_CONTAINER.remove();
-                
-                // Register event listener otherwise share container won't be created again
-                // Reason: this has been removed earlier in the code
-                // SHARE_BUTTON.addEventListener( 'click', createShareContainer );
             } );
-            
+
             SHARE_BUTTON_POPOVER.addEventListener( 'click', () => {
-                console.log('test 2')
                 SHARE_CONTAINER.remove();
                 SHARE_BUTTON.focus();
-
-                // Register event listener otherwise share container won't be created again
-                // Reason: this has been removed earlier in the code
-                // SHARE_BUTTON.addEventListener( 'click', createShareContainer );
             } );
         }
 
         [...SHARE_BUTTONS].forEach( (SHARE_BUTTON) => {
-            SHARE_BUTTON.addEventListener( 'click', (e) => {
+            SHARE_BUTTON.addEventListener( 'click', e => {
 
+                // If share container already exists, remove it (otherwise it is recreated immediately).
                 if ( e.target.nextElementSibling) {
                     e.target.nextElementSibling.remove();
                 } else {
