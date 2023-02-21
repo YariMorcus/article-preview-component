@@ -37,7 +37,7 @@
                         <time class="article-preview__publish-date" datetime="2020-06-28">28 Jun 2020</time>
                     </div> <!-- .article-preview__author-container -->
                     <div class="article-preview__share-button-container">
-                        <button class="article-preview__share-button" aria-label="Share"></button>
+                        <button class="article-preview__share-button" aria-label="Share" aria-expanded="false" aria-haspopup="dialog"></button>
                     </div>
                 </footer> <!-- .article-preview__footer -->
 
@@ -61,16 +61,18 @@
 
         }
 
+        // Helper function
+        function setAttributes(el, attrs) {
+            for (const attr in attrs) {
+                el.setAttribute(attr, attrs[attr])
+            }
+        }
+
         function createShareContainer(e) {
 
-            // Helper function
-            function setAttributes(el, attrs) {
-                for (const attr in attrs) {
-                    el.setAttribute(attr, attrs[attr])
-                }
-            }
-
             const SHARE_BUTTON = e.currentTarget;
+
+            setAttributes( SHARE_BUTTON, { 'aria-expanded': 'true' } );
 
             const ARTICLE_PREVIEW_FOOTER = document.querySelector( '.article-preview__footer' );
 
@@ -125,6 +127,7 @@
             // Setup share icon
             const SHARE_BUTTON_POPOVER = document.createElement( 'button' );
             SHARE_BUTTON_POPOVER.classList.add( 'article-preview__share-button-popover' );
+            setAttributes( SHARE_BUTTON_POPOVER, { 'aria-expanded': 'true' } );
 
             // Append all nodes to parent container
             SHARE_CONTAINER.append( SHARE_OPTIONS_CONTAINER, SHARE_BUTTON_POPOVER );
@@ -153,12 +156,14 @@
             SHARE_BUTTON.addEventListener( 'click', () => {
                 SHARE_CONTAINER.remove();
                 SHARE_BUTTON.classList.remove( 'article-preview__share-button-popover' );
+                // setAttributes( SHARE_BUTTON, { 'aria-expanded': 'false' } );
             } );
 
             SHARE_BUTTON_POPOVER.addEventListener( 'click', () => {
                 SHARE_CONTAINER.remove();
                 SHARE_BUTTON.focus();
                 removeActiveClass(SHARE_BUTTON);
+                setAttributes( SHARE_BUTTON, { 'aria-expanded': 'false' } );
             } );
         }
 
@@ -169,6 +174,7 @@
                 if ( e.target.nextElementSibling) {
                     e.target.nextElementSibling.remove();
                     removeActiveClass(SHARE_BUTTON);
+                    setAttributes( SHARE_BUTTON, { 'aria-expanded': 'false' } );
                 } else {
                     createShareContainer(e);
                 }
