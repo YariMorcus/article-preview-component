@@ -54,9 +54,9 @@
 
     <script>
 
-        const SHARE_BUTTON = document.querySelector( '.article-preview__share-button' );
+        const SHARE_BUTTONS = document.querySelectorAll( '.article-preview__share-button' );
 
-        function createShareContainer() {
+        function createShareContainer(e) {
 
             // Helper function
             function setAttributes(el, attrs) {
@@ -65,9 +65,11 @@
                 }
             }
 
+            const SHARE_BUTTON = e.currentTarget;
+
             const ARTICLE_PREVIEW_FOOTER = document.querySelector( '.article-preview__footer' );
 
-            const SHARE_BUTTON_CONTAINER = document.querySelector( '.article-preview__share-button-container' );
+            const SHARE_BUTTON_CONTAINER = e.target.parentNode;
 
             // Setup share container (parent)
             const SHARE_CONTAINER = document.createElement( 'div' );
@@ -127,28 +129,52 @@
 
             const mql = window.matchMedia( '(min-width: 768px)' );
 
-            ANCHOR_PIN.addEventListener( 'blur', () => {
-                    if (mql.matches) {
-                        console.log('groter');
-                        SHARE_BUTTON.focus();
-                    } else {
-                        SHARE_BUTTON_POPOVER.focus();
-                    }
+            ANCHOR_PIN.addEventListener( 'blur', (e) => {
+                // Change focus order based on viewport width (otherwise this results in a wrong tab order)
+                if (mql.matches) {
+                    // console.log(e.target);
+                    SHARE_BUTTON.focus();
+                } else {
+                    SHARE_BUTTON_POPOVER.focus();
+                }
             } );
 
+            // Remove event listener otherwise share container will be deleted and created immediately
+            // Results in container not being deleted
             SHARE_BUTTON.removeEventListener('click', createShareContainer );
 
-            SHARE_BUTTON.addEventListener( 'click', () => {
+            SHARE_BUTTON.addEventListener( 'click', (e) => {
+                // console.log('test')
                 SHARE_CONTAINER.remove();
-                SHARE_BUTTON.addEventListener( 'click', createShareContainer );
+                
+                // Register event listener otherwise share container won't be created again
+                // Reason: this has been removed earlier in the code
+                // SHARE_BUTTON.addEventListener( 'click', createShareContainer );
             } );
-
+            
             SHARE_BUTTON_POPOVER.addEventListener( 'click', () => {
+                console.log('test 2')
                 SHARE_CONTAINER.remove();
+                SHARE_BUTTON.focus();
+
+                // Register event listener otherwise share container won't be created again
+                // Reason: this has been removed earlier in the code
+                // SHARE_BUTTON.addEventListener( 'click', createShareContainer );
             } );
         }
 
-        SHARE_BUTTON.addEventListener( 'click', createShareContainer );
+        [...SHARE_BUTTONS].forEach( (SHARE_BUTTON) => {
+            SHARE_BUTTON.addEventListener( 'click', (e) => {
+
+                if ( e.target.nextElementSibling) {
+                    e.target.nextElementSibling.remove();
+                } else {
+                    createShareContainer(e);
+                }
+
+            } );
+        } );
+
 
     </script>
 </body>
