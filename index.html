@@ -36,7 +36,9 @@
                         <p class="article-preview__author-name">Michelle Appleton</p>
                         <time class="article-preview__publish-date" datetime="2020-06-28">28 Jun 2020</time>
                     </div> <!-- .article-preview__author-container -->
-                    <button class="article-preview__share-button" aria-label="Share"></button>
+                    <div class="article-preview__share-button-container">
+                        <button class="article-preview__share-button" aria-label="Share"></button>
+                    </div>
                 </footer> <!-- .article-preview__footer -->
 
             </div> <!-- .article-preview__content -->
@@ -50,5 +52,104 @@
         Coded&nbsp;by&nbsp;<a class="footer__link" href="https://www.linkedin.com/in/yarimorcus" target="_blank">Yari&nbsp;Morcus</a>.
     </footer> <!-- .footer -->
 
+    <script>
+
+        const SHARE_BUTTON = document.querySelector( '.article-preview__share-button' );
+
+        function createShareContainer() {
+
+            // Helper function
+            function setAttributes(el, attrs) {
+                for (const attr in attrs) {
+                    el.setAttribute(attr, attrs[attr])
+                }
+            }
+
+            const ARTICLE_PREVIEW_FOOTER = document.querySelector( '.article-preview__footer' );
+
+            const SHARE_BUTTON_CONTAINER = document.querySelector( '.article-preview__share-button-container' );
+
+            // Setup share container (parent)
+            const SHARE_CONTAINER = document.createElement( 'div' );
+            SHARE_CONTAINER.classList.add( 'article-preview__share-container' );
+
+            // Setup share options container
+            const SHARE_OPTIONS_CONTAINER = document.createElement( 'div' );
+            SHARE_OPTIONS_CONTAINER.classList.add( 'article-preview__share-options' );
+
+            // Setup 'SHARE' text
+            const SHARE_TEXT_SPAN = document.createElement( 'span' );
+            SHARE_TEXT_SPAN.classList.add( 'article-preview__share-text' );
+            const SHARE_TEXT = document.createTextNode( 'share' );
+            SHARE_TEXT_SPAN.appendChild( SHARE_TEXT );
+
+            // Setup Facebook anchor
+            const ANCHOR_FB = document.createElement( 'a' );
+            ANCHOR_FB.classList.add( 'article-preview__share-fb' );
+            setAttributes( ANCHOR_FB, { 'href': '#', 'rel': 'noopener noreferrer' } );
+
+            const ANCHOR_FB_SVG = document.createElement( 'img' );
+            setAttributes( ANCHOR_FB_SVG, { 'src': 'img/icon-facebook.svg', 'alt': 'Share on Facebook', 'width': '20', 'height': '20' } );
+
+            ANCHOR_FB.appendChild( ANCHOR_FB_SVG );
+
+            // Setup Twitter anchor
+            const ANCHOR_TWT = document.createElement( 'a' );
+            ANCHOR_TWT.classList.add( 'article-preview__share-twt' );
+            setAttributes( ANCHOR_TWT, { 'href': '#', 'rel': 'noopener noreferrer' } );
+
+            const ANCHOR_TWT_SVG = document.createElement( 'img' );
+            setAttributes( ANCHOR_TWT_SVG, { 'src': 'img/icon-twitter.svg', 'alt': 'Share on Twitter', 'width': '20', 'height': '20' } );
+
+            ANCHOR_TWT.appendChild( ANCHOR_TWT_SVG );
+
+            // Setup Pinterest anchor
+            const ANCHOR_PIN = document.createElement( 'a' );
+            ANCHOR_PIN.classList.add( 'article-preview__share-pin' );
+            setAttributes( ANCHOR_PIN, { 'href': '#', 'rel': 'noopener noreferrer' } );
+
+            const ANCHOR_PIN_SVG = document.createElement( 'img' );
+            setAttributes( ANCHOR_PIN_SVG, { 'src': 'img/icon-pinterest.svg', 'alt': 'Share on Pinterest', 'width': '20', 'height': '20' } );
+            ANCHOR_PIN.appendChild( ANCHOR_PIN_SVG );
+
+            // Append share text and all options to share options container
+            SHARE_OPTIONS_CONTAINER.append( SHARE_TEXT_SPAN, ANCHOR_FB, ANCHOR_TWT, ANCHOR_PIN );
+
+            // Setup share icon
+            const SHARE_BUTTON_POPOVER = document.createElement( 'button' );
+            SHARE_BUTTON_POPOVER.classList.add( 'article-preview__share-button-popover' );
+
+            // Append all nodes to parent container
+            SHARE_CONTAINER.append( SHARE_OPTIONS_CONTAINER, SHARE_BUTTON_POPOVER );
+
+            // Append share container to .article-preview__share-button-container
+            SHARE_BUTTON_CONTAINER.appendChild( SHARE_CONTAINER );
+
+            const mql = window.matchMedia( '(min-width: 768px)' );
+
+            ANCHOR_PIN.addEventListener( 'blur', () => {
+                    if (mql.matches) {
+                        console.log('groter');
+                        SHARE_BUTTON.focus();
+                    } else {
+                        SHARE_BUTTON_POPOVER.focus();
+                    }
+            } );
+
+            SHARE_BUTTON.removeEventListener('click', createShareContainer );
+
+            SHARE_BUTTON.addEventListener( 'click', () => {
+                SHARE_CONTAINER.remove();
+                SHARE_BUTTON.addEventListener( 'click', createShareContainer );
+            } );
+
+            SHARE_BUTTON_POPOVER.addEventListener( 'click', () => {
+                SHARE_CONTAINER.remove();
+            } );
+        }
+
+        SHARE_BUTTON.addEventListener( 'click', createShareContainer );
+
+    </script>
 </body>
 </html>
