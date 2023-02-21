@@ -152,6 +152,10 @@
             background-repeat: no-repeat;
             background-position: center;
             cursor: pointer;
+
+            &:hover {
+                background-color: scale-color(v.$grayish-blue, $lightness: 48%);
+            }
         }
 
         &-button-popover {
