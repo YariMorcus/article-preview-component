@@ -58,7 +58,6 @@
 
         function removeActiveClass(activeShareButton) {
             activeShareButton.classList.remove( activeShareButton.classList[1] );
-
         }
 
         // Helper function
@@ -142,7 +141,6 @@
             ANCHOR_PIN.addEventListener( 'blur', (e) => {
                 // Change focus order based on viewport width (otherwise this results in a wrong tab order)
                 if (mql.matches) {
-                    // console.log(e.target);
                     SHARE_BUTTON.focus();
                 } else {
                     SHARE_BUTTON_POPOVER.focus();
@@ -156,7 +154,6 @@
             SHARE_BUTTON.addEventListener( 'click', () => {
                 SHARE_CONTAINER.remove();
                 SHARE_BUTTON.classList.remove( 'article-preview__share-button-popover' );
-                // setAttributes( SHARE_BUTTON, { 'aria-expanded': 'false' } );
             } );
 
             SHARE_BUTTON_POPOVER.addEventListener( 'click', () => {
