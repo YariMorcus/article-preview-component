@@ -14,6 +14,10 @@
     box-shadow: 0 8rem 25rem -10.5rem v.$grayish-blue;
     border-radius: 1rem;
 
+    @include m.landscape-orientation() {
+        margin: 3rem auto;
+    }
+
     @include m.breakpoint-md() {
         display: grid;
         grid-template-columns: 27rem 1fr;

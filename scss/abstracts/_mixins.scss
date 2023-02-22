@@ -11,3 +11,10 @@
         @content;
     }
 }
+
+// Landscape orientation (used for fix)
+@mixin landscape-orientation() {
+    @media (orientation: landscape) {
+        @content;
+    }
+}
