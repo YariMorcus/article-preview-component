@@ -3,6 +3,9 @@
 // Forward reset file when _index.scss is @used
 @forward 'reset';
 
+// Forward noscript file when _index.scss is @used
+@forward 'noscript';
+
 // Forward base file when _index.scss is @used
 @forward 'base';
 

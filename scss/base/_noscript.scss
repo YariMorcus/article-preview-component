@@ -1,0 +1,13 @@
+// Import variables
+@use '../abstracts/variables' as v;
+
+// Import typography variables
+@use '../base/typography' as t;
+
+.noscript {
+    padding: 2rem;
+    font: t.$body-font-size 'Manrope', sans-serif;
+    color: v.$white;
+    text-align: center;
+    background-color: v.$very-dark-grayish-blue;
+}
