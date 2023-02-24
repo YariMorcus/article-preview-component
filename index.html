@@ -75,7 +75,7 @@
         const SHARE_BUTTONS = document.querySelectorAll( '.js-article-preview__share-button' );
 
         function removeActiveClass(activeShareButton) {
-            activeShareButton.classList.remove( activeShareButton.classList[1] );
+            activeShareButton.classList.remove( activeShareButton.classList[activeShareButton.classList.length - 1] );
         }
 
         // Helper function
