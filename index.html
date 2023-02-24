@@ -10,18 +10,200 @@
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
     <link rel="canonical" href="https://yarimorcus.github.io/article-preview-component">
 
+    <!-- Prefetch images -->
+    <link rel="prefetch" href="img/icon-facebook.svg">
+    <link rel="prefetch" href="img/icon-twitter.svg">
+    <link rel="prefetch" href="img/icon-pinterest.svg">
+    <link rel="prefetch" href="img/icon-share-active.svg">
+
+    <!-- Open Graph metadata -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yarimorcus.github.io/article-preview-component">
+    <meta property="og:title" content="Article preview component challenge">
+    <meta property="og:description" content="Made by Yari Morcus. A challenge from Frontend Mentor">
+    <meta property="og:image" content="screenshot.png">
+    <meta property="og:image:width" content="2160">
+    <meta property="og:image:height" content="1231">
+
+    <!-- Twitter cards-->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Article preview component">
+    <meta name="twitter:description" content="Challenge from Frontend Mentor, made by Yari Morcus">
+    <meta name="twitter:image" content="screenshot.png">
+    <meta name="twitter:image:alt" content="A screenshot of the article preview component">
+
     <!-- custom CSS -->
-    <link rel="stylesheet" href="css/main.css">
+    <style>*,::after,::before{box-sizing:border-box}blockquote,body,dd,dl,figcaption,figure,h1,h2,h3,h4,h5,h6,li,p{margin:0}ol[role=list],ul[role=list]{list-style:none}button,input,select,textarea{margin:0;padding:0;font-family:inherit;font-size:100%}@font-face{font-family:Manrope;src:url(fonts/manrope-bold.woff2) format("woff2"),url(fonts/manrope-bold.woff) format("woff"),url(fonts/manrope-bold.ttf) format("truetype");font-weight:700;font-style:normal;font-display:swap}@font-face{font-family:Manrope;src:url(fonts/manrope-medium.woff2) format("woff2"),url(fonts/manrope-medium.woff) format("woff"),url(fonts/manrope-medium.ttf) format("truetype");font-weight:500;font-style:normal;font-display:swap}.noscript{padding:2rem;font:1.3rem Manrope,sans-serif;color:#fff;text-align:center;background-color:#48556a}html{font-size:10px}html:focus-within{scroll-behavior:smooth}body{display:flex;flex-direction:column;min-height:100vh;text-rendering:optimizeSpeed;line-height:1.5;background-color:#ecf2f8}main{flex:1;display:flex;align-items:center}a:not([class]){-webkit-text-decoration-skip:ink;text-decoration-skip-ink:auto}img{display:block;max-width:100%}@media (prefers-reduced-motion:reduce){*,::after,::before{animation-duration:0s!important;animation-iteration-count:1!important;transition-duration:0s!important;scroll-behavior:auto!important}}.footer{padding:0 1.28rem 1.28rem;font-family:"Lexend Deca",sans-serif;font-size:1.2rem;text-align:center}.footer__link{color:#000}.footer__link:hover{color:#505e71}.footer__link:focus-visible{outline:2px solid #000;border-radius:1px}.article-preview{margin:0 auto;max-width:32rem;font-family:Manrope,sans-serif;font-size:1.3rem;background-color:#fff;box-shadow:0 8rem 25rem -10.5rem #9daec2;border-radius:1rem}@media (orientation:landscape){.article-preview{margin:3rem auto}}@media (min-width:768px){.article-preview{display:grid;grid-template-columns:27rem 1fr;max-width:65rem;box-shadow:4rem 6.1rem 10rem -8.8rem #9daec2}}@media (min-width:878px){.article-preview{max-width:70rem}}.article-preview__header-img{padding-top:20rem;background-image:url(img/drawers.webp);background-size:cover;background-position-y:-1.4rem;background-repeat:no-repeat;border-top-left-radius:1rem;border-top-right-radius:1rem;filter:contrast(.9) brightness(1.12)}@media (min-width:768px){.article-preview__header-img{padding-top:0;background-position-y:0;border-top-right-radius:initial;border-bottom-left-radius:1rem}}.article-preview__footer,.article-preview__paragraph,.article-preview__share-container,.article-preview__title{padding-left:3.2rem;padding-right:3.1rem}.article-preview__title{padding-top:4rem;font-size:1.6rem;border-top-right-radius:1rem}@media (min-width:768px){.article-preview__title{padding-top:3rem;padding-right:11rem;padding-left:4rem}}.article-preview__paragraph{padding-top:1.5rem;color:#6c7f97}@media (min-width:768px){.article-preview__paragraph{padding-right:3rem;padding-left:4rem}}.article-preview__author-name,.article-preview__title{font-weight:700;color:#48556a}.article-preview__footer{position:relative;display:flex;justify-content:space-between;margin-top:2rem;padding:1.5rem 3.1rem 1.5rem 3.2rem;align-items:center}@media (min-width:768px){.article-preview__footer{margin-top:.5rem;padding-right:4rem;padding-bottom:2.5rem;padding-left:4rem}}.article-preview__share-container{position:absolute;top:0;right:0;left:0;bottom:0;display:flex;align-items:center;background-color:#48556a;border-bottom-left-radius:1rem;border-bottom-right-radius:1rem}@media (min-width:768px){.article-preview__share-container{top:-9rem;bottom:initial;left:50%;padding:2rem;width:max-content;border-radius:1rem;transform:translateX(-50%)}.article-preview__share-container::after{content:"";position:absolute;top:100%;right:0;left:0;margin:0 auto;width:0;height:0;border-top:solid 12px #48556a;border-left:solid 12px transparent;border-right:solid 12px transparent}}.article-preview__share-button-container{display:flex;align-items:center}@media (min-width:768px){.article-preview__share-button-container{position:relative}}.article-preview__share-button,.article-preview__share-button-popover{width:2.8rem;height:2.8rem;border:none;border-radius:100%;background-image:url(img/icon-share.svg);background-repeat:no-repeat;background-position:center;cursor:pointer}.article-preview__share-button-popover:hover,.article-preview__share-button:hover{background-color:#ccd5df}.article-preview__share-button--selected,.article-preview__share-button-popover--selected{background-image:url(img/icon-share-active.svg);background-color:#6c7f97}.article-preview__share-button--selected:hover,.article-preview__share-button-popover--selected:hover{background-color:#95a8bd}.article-preview__share-button-popover:focus{outline:2px solid #000}@media (min-width:768px){.article-preview__share-button-popover{display:none}}.article-preview__share-options{display:flex;align-items:center;flex:1}.article-preview__share-text{color:#9daec2;text-transform:uppercase;letter-spacing:.5rem}.article-preview__share-fb,.article-preview__share-pin,.article-preview__share-text,.article-preview__share-twt{display:inline-block}.article-preview__share-fb{margin-left:2rem}.article-preview__share-pin,.article-preview__share-twt{margin-left:1.5rem}.article-preview__author-img{border-radius:100%}.article-preview__author-info{flex:1;padding-left:2rem}.article-preview__publish-date{display:inline-block;padding-top:.2rem;color:#9daec2}</style>
 
     <title>Article preview component | Frontend Mentor challenge</title>
 
 </head>
 <body>
+    <noscript class="noscript">
+        <p class="noscript__text">Your browser has disabled JS. As a result, the share buttons are not accessible.</p>
+    </noscript> <!-- .noscript-->
+
+    <main>
+
+        <article class="article-preview">
+
+            <div class="article-preview__header-img"></div>
+
+            <div class="article-preview__content">
+                <header class="article-preview__header">
+                    <h2 class="article-preview__title">Shift the overall look and feel by adding these wonderful touches to furniture in your home</h2>
+                    <p class="article-preview__paragraph">Ever been in a room and felt like something was missing? Perhaps it felt slightly bare and uninviting. I’ve got some simple tips to help you make any room feel complete.</p>
+                </header> <!-- .article-preview__header -->
+
+                <footer class="article-preview__footer js-article-preview__footer">
+                    <img src="img/avatar-michelle.webp" alt="" class="article-preview__author-img" height="40">
+                    <div class="article-preview__author-info">
+                        <p class="article-preview__author-name">Michelle Appleton</p>
+                        <time class="article-preview__publish-date" datetime="2020-06-28">28 Jun 2020</time>
+                    </div> <!-- .article-preview__author-container -->
+                    <div class="article-preview__share-button-container">
+                        <button class="article-preview__share-button js-article-preview__share-button" aria-label="Share" aria-expanded="false" aria-haspopup="dialog"></button>
+                    </div>
+                </footer> <!-- .article-preview__footer -->
+
+            </div> <!-- .article-preview__content -->
+
+        </article> <!-- .article-preview -->
+
+    </main>
 
     <footer class="footer">
-        Challenge by <a class="footer__link" href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-        Coded&nbsp;by&nbsp;<a class="footer__link" href="https://www.linkedin.com/in/yarimorcus" target="_blank">Yari&nbsp;Morcus</a>.
+        Challenge by <a class="footer__link" href="https://www.frontendmentor.io?ref=challenge" rel="noopener noreferer" target="_blank">Frontend Mentor</a>.
+        Coded&nbsp;by&nbsp;<a class="footer__link" href="https://www.linkedin.com/in/yarimorcus" rel="noopener noreferer" target="_blank">Yari&nbsp;Morcus</a>.
     </footer> <!-- .footer -->
 
+    <script>
+
+        const SHARE_BUTTONS = document.querySelectorAll( '.js-article-preview__share-button' );
+
+        function removeActiveClass(activeShareButton) {
+            activeShareButton.classList.remove( activeShareButton.classList[activeShareButton.classList.length - 1] );
+        }
+
+        // Helper function
+        function setAttributes(el, attrs) {
+            for (const attr in attrs) {
+                el.setAttribute(attr, attrs[attr])
+            }
+        }
+
+        function createShareContainer(e) {
+
+            const SHARE_BUTTON = e.currentTarget;
+
+            setAttributes( SHARE_BUTTON, { 'aria-expanded': 'true' } );
+
+            const ARTICLE_PREVIEW_FOOTER = document.querySelector( '.js-article-preview__footer' );
+
+            const SHARE_BUTTON_CONTAINER = e.target.parentNode;
+
+            // Setup share container (parent)
+            const SHARE_CONTAINER = document.createElement( 'div' );
+            SHARE_CONTAINER.classList.add( 'article-preview__share-container' );
+
+            // Setup share options container
+            const SHARE_OPTIONS_CONTAINER = document.createElement( 'div' );
+            SHARE_OPTIONS_CONTAINER.classList.add( 'article-preview__share-options' );
+
+            // Setup 'SHARE' text
+            const SHARE_TEXT_SPAN = document.createElement( 'span' );
+            SHARE_TEXT_SPAN.classList.add( 'article-preview__share-text' );
+            const SHARE_TEXT = document.createTextNode( 'share' );
+            SHARE_TEXT_SPAN.appendChild( SHARE_TEXT );
+
+            // Setup Facebook anchor
+            const ANCHOR_FB = document.createElement( 'a' );
+            ANCHOR_FB.classList.add( 'article-preview__share-fb' );
+            setAttributes( ANCHOR_FB, { 'href': '#', 'rel': 'noopener noreferrer' } );
+
+            const ANCHOR_FB_SVG = document.createElement( 'img' );
+            setAttributes( ANCHOR_FB_SVG, { 'src': 'img/icon-facebook.svg', 'alt': 'Share on Facebook', 'width': '20', 'height': '20' } );
+
+            ANCHOR_FB.appendChild( ANCHOR_FB_SVG );
+
+            // Setup Twitter anchor
+            const ANCHOR_TWT = document.createElement( 'a' );
+            ANCHOR_TWT.classList.add( 'article-preview__share-twt' );
+            setAttributes( ANCHOR_TWT, { 'href': '#', 'rel': 'noopener noreferrer' } );
+
+            const ANCHOR_TWT_SVG = document.createElement( 'img' );
+            setAttributes( ANCHOR_TWT_SVG, { 'src': 'img/icon-twitter.svg', 'alt': 'Share on Twitter', 'width': '20', 'height': '20' } );
+
+            ANCHOR_TWT.appendChild( ANCHOR_TWT_SVG );
+
+            // Setup Pinterest anchor
+            const ANCHOR_PIN = document.createElement( 'a' );
+            ANCHOR_PIN.classList.add( 'article-preview__share-pin' );
+            setAttributes( ANCHOR_PIN, { 'href': '#', 'rel': 'noopener noreferrer' } );
+
+            const ANCHOR_PIN_SVG = document.createElement( 'img' );
+            setAttributes( ANCHOR_PIN_SVG, { 'src': 'img/icon-pinterest.svg', 'alt': 'Share on Pinterest', 'width': '20', 'height': '20' } );
+            ANCHOR_PIN.appendChild( ANCHOR_PIN_SVG );
+
+            // Append share text and all options to share options container
+            SHARE_OPTIONS_CONTAINER.append( SHARE_TEXT_SPAN, ANCHOR_FB, ANCHOR_TWT, ANCHOR_PIN );
+
+            // Setup share icon
+            const SHARE_BUTTON_POPOVER = document.createElement( 'button' );
+            SHARE_BUTTON_POPOVER.classList.add( 'article-preview__share-button-popover' );
+            setAttributes( SHARE_BUTTON_POPOVER, { 'aria-expanded': 'true' } );
+
+            // Append all nodes to parent container
+            SHARE_CONTAINER.append( SHARE_OPTIONS_CONTAINER, SHARE_BUTTON_POPOVER );
+
+            // Append share container to .article-preview__share-button-container
+            SHARE_BUTTON_CONTAINER.appendChild( SHARE_CONTAINER );
+
+            SHARE_BUTTON.classList.add( `${SHARE_BUTTON.classList[0]}--selected` );
+
+            const mql = window.matchMedia( '(min-width: 768px)' );
+
+            ANCHOR_PIN.addEventListener( 'blur', (e) => {
+                // Change focus order based on viewport width (otherwise this results in a wrong tab order)
+                if (mql.matches) {
+                    SHARE_BUTTON.focus();
+                } else {
+                    SHARE_BUTTON_POPOVER.focus();
+                }
+            } );
+
+            // Remove event listener otherwise share container will be deleted and created immediately
+            // Results in container not being deleted
+            SHARE_BUTTON.removeEventListener('click', createShareContainer );
+
+            SHARE_BUTTON.addEventListener( 'click', () => {
+                SHARE_CONTAINER.remove();
+                SHARE_BUTTON.classList.remove( 'article-preview__share-button-popover' );
+            } );
+
+            SHARE_BUTTON_POPOVER.addEventListener( 'click', () => {
+                SHARE_CONTAINER.remove();
+                SHARE_BUTTON.focus();
+                removeActiveClass(SHARE_BUTTON);
+                setAttributes( SHARE_BUTTON, { 'aria-expanded': 'false' } );
+            } );
+        }
+
+        [...SHARE_BUTTONS].forEach( (SHARE_BUTTON) => {
+            SHARE_BUTTON.addEventListener( 'click', e => {
+
+                // If share container already exists, remove it (otherwise it is recreated immediately).
+                if ( e.target.nextElementSibling) {
+                    e.target.nextElementSibling.remove();
+                    removeActiveClass(SHARE_BUTTON);
+                    setAttributes( SHARE_BUTTON, { 'aria-expanded': 'false' } );
+                } else {
+                    createShareContainer(e);
+                }
+
+            } );
+        } );
+
+    </script>
 </body>
 </html>

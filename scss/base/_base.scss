@@ -15,8 +15,18 @@ html {
 
 /* Set core body defaults */
 body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     text-rendering: optimizeSpeed;
     line-height: 1.5;
+    background-color: v.$light-grayish-blue;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    align-items: center;
 }
 
 /* A elements that don't have a class get default styles */
@@ -42,22 +52,22 @@ img {
     }
 }
 
-// .footer {
-//     padding: 0 1.28rem 1.28rem;
-//     font-family: 'Lexend Deca', sans-serif;
-//     font-size: 1.2rem;
-//     text-align: center;
+.footer {
+    padding: 0 1.28rem 1.28rem;
+    font-family: 'Lexend Deca', sans-serif;
+    font-size: 1.2rem;
+    text-align: center;
 
-//     &__link {
-//         color: v.$very-dark-cyan;
+    &__link {
+        color: v.$black;
 
-//         &:hover {
-//             color: scale-color(v.$very-dark-cyan, $lightness: 10%);
-//         }
+        &:hover {
+            color: scale-color(v.$desaturated-dark-blue, $lightness: -26%);
+        }
 
-//         &:focus-visible {
-//             outline: 2px solid v.$black;
-//             border-radius: 1px;
-//         }
-//     }
-// }
+        &:focus-visible {
+            outline: 2px solid v.$black;
+            border-radius: 1px;
+        }
+    }
+}

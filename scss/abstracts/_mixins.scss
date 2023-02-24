@@ -4,3 +4,17 @@
         @content;
     }
 }
+
+// > 878px
+@mixin breakpoint-md-2() {
+    @media (min-width: 878px) {
+        @content;
+    }
+}
+
+// Landscape orientation (used for fix)
+@mixin landscape-orientation() {
+    @media (orientation: landscape) {
+        @content;
+    }
+}
